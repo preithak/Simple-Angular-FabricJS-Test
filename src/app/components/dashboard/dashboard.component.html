@@ -1,0 +1,52 @@
+<div class="top-level">
+  <div class="toolbar" role="banner">
+    <img
+      width="40"
+      alt="Angular Logo"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+    />
+    <span>Welcome</span>
+  </div>
+
+  <div class="content" role="main">
+
+    <div class="canvas-div" #myIdentifier>
+
+      <canvas id="canvas"></canvas>
+
+    </div>
+
+    <div class= "side-div">
+
+
+      <h3>Options</h3>
+
+
+      <div class="card-container">
+        <button class="card" target="_blank" rel="noopener" (click)="toggleModes()">
+          <svg *ngIf="this.currentMode === 'draw'; else elseBlock" class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+          <ng-template #elseBlock>
+            <svg  class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2"/></svg> <!--12l4.6-4.6L8   6l-6 6 6 6 1.4-1.4zm5.2 -->
+          </ng-template>
+          <span>Toggle Draw</span>
+        </button>
+
+        <span class="card card-small" [(colorPicker)]="color" [style.background]="color" [cpDisableInput]="false" (colorPickerChange)="onChangeColor($event)"></span>
+
+        <button class="card" target="_blank" rel="noopener" (click)="clearCanvas()">
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+          <span>Clear Canvas</span>
+        </button>
+
+        <button class="card" target="_blank" rel="noopener" (click)="authService.SignOut()">
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          <span>Log Out</span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
